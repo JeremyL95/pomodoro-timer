@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,700&display=swap");
+
+@mixin flexCenter($display, $justify, $align, $direction) {
+    display: $display;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+$btn-pomodoro: #d95550;
+$btn-shortBreak: #4c9195;
+$btn-longBreak: #457ca3;
+$default: #fff;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "montserrat", san-serif;
+}
+
+body {
+    @include flexCenter(flex, center, center, row);
+    height: 100vh;
+    padding: 1em;
+    background-color: $btn-pomodoro;
+    transition: background-color 1s ease-out;
+}
+
+.container {
+    @include flexCenter(flex, center, center, column);
+    width: 500px;
+    height: 300px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.timer {
+    letter-spacing: 2px;
+
+    span {
+        font-size: 5em;
+        font-weight: 700;
+        color: $default;
+    }
+}
+
+.btn {
+    display: inline;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75em 1em;
+    margin-bottom: 1em;
+    background-color: transparent;
+    color: $default;
+    cursor: pointer;
+
+    &:active {
+        transform: translateY(2px);
+    }
+}
+
+.btn-pomodoro:focus,
+.active {
+    background-color: darken($btn-pomodoro, 0.5);
+}
+
+.btn-shortbreak:focus,
+.active2 {
+    background-color: darken($btn-shortBreak, 0.5);
+}
+
+.btn-longbreak:focus,
+.active3 {
+    background-color: darken($btn-longBreak, 0.5);
+}
+
+.btn-start,
+.btn-stop {
+    display: inline;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.125em;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5em 2em;
+    margin-top: 2em;
+    background-color: $default;
+    color: $btn-pomodoro;
+}
+
+.btn-stop {
+    display: none;
+}
